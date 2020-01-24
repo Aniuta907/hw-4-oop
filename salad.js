@@ -1,4 +1,4 @@
-const POSSIBLE_TYPES = {
+var POSSIBLE_TYPES = {
   caesar: {
     price: 100,
     calories: 20
@@ -9,15 +9,15 @@ const POSSIBLE_TYPES = {
   }
 };
 
-function Salad() {
+function Salad(weight) {
   this._type = null;
-  this._weight = 0;
+  this._weight = weight;
 }
 
 Salad.prototype = Object.create(OrderItem.prototype);
 
-Salad.prototype.setTypes = function(size) {
-  this._type = POSSIBLE_TYPESs[type];
+Salad.prototype.setType = function(type) {
+  this._type = POSSIBLE_TYPES[type];
   return this;
 };
 

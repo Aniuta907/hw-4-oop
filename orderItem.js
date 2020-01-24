@@ -1,7 +1,4 @@
-function OrderItem() {
-  this._calories = 0;
-  this._price = 0;
-}
+function OrderItem() {}
 
 OrderItem.prototype.getCalories = function() {
   return this._calories;

@@ -1,4 +1,4 @@
-const POSSIBLE_STUFFINGS = {
+var POSSIBLE_STUFFINGS = {
   cheese: {
     price: 10,
     calories: 20
@@ -13,7 +13,7 @@ const POSSIBLE_STUFFINGS = {
   }
 };
 
-const POSSIBLE_SIZES = {
+var POSSIBLE_SIZES = {
   large: {
     price: 100,
     calories: 40
@@ -24,11 +24,11 @@ const POSSIBLE_SIZES = {
   }
 };
 
-function Hamburger() {
-  this._calories = 0;
-  this._price = 0;
+function Hamburger(quantity) {
+  this._stuffingCalories = 0;
+  this._stuffingPrice = 0;
   this._size = null;
-  this._quantity = 0;
+  this._quantity = quantity;
 }
 
 Hamburger.prototype = Object.create(OrderItem.prototype);
@@ -39,11 +39,15 @@ Hamburger.prototype.setSize = function(size) {
 };
 
 Hamburger.prototype.addStuffing = function(stuffing) {
-  this._calories += POSSIBLE_STUFFINGS[stuffing].calories;
-  this._price += POSSIBLE_STUFFINGS[stuffing].price;
+  this._stuffingCalories += POSSIBLE_STUFFINGS[stuffing].calories;
+  this._stuffingPrice += POSSIBLE_STUFFINGS[stuffing].price;
   return this;
 };
 
 Hamburger.prototype.getCost = function() {
-  return this._quantity * (this._size.price + this._price);
+  return this._quantity * (this._size.price + this._stuffingPrice);
+};
+
+Hamburger.prototype.getCalories = function() {
+  return this._quantity * (this._size.calories + this._stuffingCalories);
 };

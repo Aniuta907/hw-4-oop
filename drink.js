@@ -1,4 +1,4 @@
-const POSSIBLE_DRINK_TYPES = {
+var POSSIBLE_DRINK_TYPES = {
   cola: {
     price: 50,
     calories: 40
@@ -9,14 +9,14 @@ const POSSIBLE_DRINK_TYPES = {
   }
 };
 
-function Drink() {
+function Drink(quantity) {
   this._type = null;
-  this._quantity = 0;
+  this._quantity = quantity;
 }
 
 Drink.prototype = Object.create(OrderItem.prototype);
 
-Drink.prototype.setTypes = function(size) {
+Drink.prototype.setType = function(size) {
   this._type = POSSIBLE_DRINK_TYPES[type];
   return this;
 };
