@@ -4,8 +4,27 @@ function Order() {
 }
 
 Order.prototype.addItem = function(orderItem) {
-  this.orderItems.push(orderItem);
-  return this;
+  if (!this.isPaid) {
+    this.orderItems.push(orderItem);
+    console.log("You added the position", orderItem.name);
+    return this;
+  } else
+    console.log(
+      "You can't add this position because you've already paid the bill"
+    );
+};
+
+Order.prototype.deleteItem = function(orderItem) {
+  if (!this.isPaid) {
+    this.orderItems = this.orderItems.filter(function(item) {
+      return item != orderItem;
+    });
+    console.log("You deleted the position", orderItem.name);
+    return this;
+  } else
+    console.log(
+      "You can't delete this position because you've already paid the bill"
+    );
 };
 
 Order.prototype.payOrder = function() {
@@ -41,6 +60,8 @@ const order1 = new Order()
   .addItem(salad2)
   .addItem(ham1)
   .addItem(ham2);
+
+order1.deleteItem(ham1);
 
 console.log(order1);
 

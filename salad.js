@@ -10,6 +10,7 @@ var POSSIBLE_TYPES = {
 };
 
 function Salad(weight) {
+  this.name = "salad";
   this._type = null;
   this._weight = weight;
 }

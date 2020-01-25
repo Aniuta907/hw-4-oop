@@ -25,6 +25,7 @@ var POSSIBLE_SIZES = {
 };
 
 function Hamburger(quantity) {
+  this.name = "hamburger";
   this._stuffingCalories = 0;
   this._stuffingPrice = 0;
   this._size = null;

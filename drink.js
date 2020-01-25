@@ -10,6 +10,7 @@ var POSSIBLE_DRINK_TYPES = {
 };
 
 function Drink(quantity) {
+  this.name = "drink";
   this._type = null;
   this._quantity = quantity;
 }
