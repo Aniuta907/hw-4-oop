@@ -1,6 +1,8 @@
 function Order() {
   this.orderItems = [];
   this.isPaid = false;
+  this.totalCost = 0;
+  this.totalCalories = 0;
 }
 
 Order.prototype.addItem = function(orderItem) {
@@ -27,8 +29,8 @@ Order.prototype.deleteItem = function(orderItem) {
     );
 };
 
-Order.prototype.payOrder = function() {
-  this.isPaid = true;
+Order.prototype.getOrder = function() {
+  console.log(this.orderItems);
 };
 
 Order.prototype.getTotalCost = function() {
@@ -41,6 +43,25 @@ Order.prototype.getTotalCalories = function() {
   return this.orderItems.reduce(function(totalCalories, orderItem) {
     return totalCalories + orderItem.getCalories();
   }, 0);
+};
+
+Order.prototype.payOrder = function(order, money) {
+  this.totalCost = order.getTotalCost();
+
+  if (!this.isPaid && money == this.totalCost) {
+    this.isPaid = true;
+    console.log("You paid the bill");
+  } else if (!this.isPaid && money < this.totalCost) {
+    console.log(
+      "This money is not enough, you should pay " +
+        this.totalPrice +
+        " tugricov"
+    );
+  } else if (!this.isPaid && money > this.totalCost) {
+    this.isPaid = true;
+    var change = money - this.totalCost;
+    console.log("You paid the bill, take your change: " + change + " tugricov");
+  } else console.log("You have already paid the bill");
 };
 
 const ham1 = new Hamburger(1)
@@ -61,9 +82,11 @@ const order1 = new Order()
   .addItem(ham1)
   .addItem(ham2);
 
+order1.payOrder(order1, 1000);
+
 order1.deleteItem(ham1);
 
-console.log(order1);
+order1.getOrder();
 
 console.log("cost = ", order1.getTotalCost());
 console.log("calories = ", order1.getTotalCalories());
