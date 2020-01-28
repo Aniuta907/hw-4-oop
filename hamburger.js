@@ -1,3 +1,5 @@
+var OrderItem = require("./orderItem");
+
 var POSSIBLE_STUFFINGS = {
   cheese: {
     price: 10,
@@ -52,3 +54,5 @@ Hamburger.prototype.getCost = function() {
 Hamburger.prototype.getCalories = function() {
   return this._quantity * (this._size.calories + this._stuffingCalories);
 };
+
+module.exports = Hamburger;

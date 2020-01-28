@@ -7,3 +7,5 @@ OrderItem.prototype.getCalories = function() {
 OrderItem.prototype.getCost = function() {
   return this._price;
 };
+
+module.exports = OrderItem;

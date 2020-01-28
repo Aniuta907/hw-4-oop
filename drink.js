@@ -1,3 +1,5 @@
+var OrderItem = require("./orderItem");
+
 var POSSIBLE_DRINK_TYPES = {
   cola: {
     price: 50,
@@ -29,3 +31,5 @@ Drink.prototype.getCalories = function() {
 Drink.prototype.getCost = function() {
   return this._quantity * this._type.price;
 };
+
+module.exports = Drink;

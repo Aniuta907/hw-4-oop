@@ -1,3 +1,5 @@
+var OrderItem = require("./orderItem");
+
 var POSSIBLE_TYPES = {
   caesar: {
     price: 100,
@@ -31,3 +33,5 @@ Salad.prototype.getCalories = function() {
 Salad.prototype.getCost = function() {
   return (this._weight * this._type.price) / PORTION;
 };
+
+module.exports = Salad;

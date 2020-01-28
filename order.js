@@ -1,3 +1,7 @@
+var Hamburger = require("./hamburger");
+var Salad = require("./salad");
+var Drink = require("./drink");
+
 function Order() {
   this.orderItems = [];
   this.isPaid = false;
@@ -90,3 +94,5 @@ order1.getOrder();
 
 console.log("cost =", order1.getTotalCost());
 console.log("calories =", order1.getTotalCalories());
+
+module.exports = Order;
