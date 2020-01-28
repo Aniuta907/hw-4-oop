@@ -88,5 +88,5 @@ order1.deleteItem(ham1);
 
 order1.getOrder();
 
-console.log("cost = ", order1.getTotalCost());
-console.log("calories = ", order1.getTotalCalories());
+console.log("cost =", order1.getTotalCost());
+console.log("calories =", order1.getTotalCalories());

@@ -9,6 +9,8 @@ var POSSIBLE_TYPES = {
   }
 };
 
+var PORTION = 100;
+
 function Salad(weight) {
   this.name = "salad";
   this._type = null;
@@ -23,9 +25,9 @@ Salad.prototype.setType = function(type) {
 };
 
 Salad.prototype.getCalories = function() {
-  return (this._weight * this._type.calories) / 100;
+  return (this._weight * this._type.calories) / PORTION;
 };
 
 Salad.prototype.getCost = function() {
-  return (this._weight * this._type.price) / 100;
+  return (this._weight * this._type.price) / PORTION;
 };
